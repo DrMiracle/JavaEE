@@ -7,15 +7,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-rest-sample" />
         <module name="topic2-junit" />
+        <module name="spring-web-sample" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="spring-rest-sample" target="11" />
+      <module name="spring-web-sample" target="1.8" />
       <module name="topic2-junit" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring-rest-sample" options="-parameters" />
+      <module name="spring-web-sample" options="-parameters" />
       <module name="topic2-junit" options="-parameters" />
     </option>
   </component>

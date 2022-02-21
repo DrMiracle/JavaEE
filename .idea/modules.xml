@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/EELab.iml" filepath="$PROJECT_DIR$/.idea/EELab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/topic8/samples/spring-rest-sample/spring-rest-sample.iml" filepath="$PROJECT_DIR$/topic8/samples/spring-rest-sample/spring-rest-sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/topic5/samples/spring-web-sample/spring-web-sample.iml" filepath="$PROJECT_DIR$/topic5/samples/spring-web-sample/spring-web-sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/topic2-junit/topic2-junit.iml" filepath="$PROJECT_DIR$/topic2-junit/topic2-junit.iml" />
     </modules>
   </component>

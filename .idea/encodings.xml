@@ -2,5 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/topic2-junit/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/topic5/samples/spring-web-sample/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/topic5/samples/spring-web-sample/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/topic8/samples/spring-rest-sample/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/topic8/samples/spring-rest-sample/src/main/resources" charset="UTF-8" />
   </component>
 </project>
