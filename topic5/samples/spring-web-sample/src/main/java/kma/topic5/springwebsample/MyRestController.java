@@ -28,6 +28,11 @@ public class MyRestController {
         return bookList;
     }
 
+    @GetMapping("/clear")
+    public void clearBook(){
+        bookList.clear();
+    }
+
     @GetMapping("/foundBooks")
     public List<Book> findBooks(
             @RequestParam(name = "searchInput",required = false) String field){

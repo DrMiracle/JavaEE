@@ -64,22 +64,22 @@ public class IntegrationTest {
         book1.setTitle("test");
         List<Book> books = new ArrayList<>();
         books.add(book);
+        books.add(book1);
+        String jsonRequest = objectMapper.writeValueAsString(book);
         RestAssured
-                .given()
-                    .param("title","Title")
-                    .param("author","author")
-                    .param("isbn","1111")
+                .given().contentType("application/json")
+                .body(jsonRequest)
                 .when()
                 .post("/addBookWithREST");
-        String jsonRequest = objectMapper.writeValueAsString(book1);
+        jsonRequest = objectMapper.writeValueAsString(book1);
         RestAssured
-                .given()
+                .given().contentType("application/json")
                 .contentType(ContentType.JSON)
                 .body(jsonRequest)
                 .when()
                 .post("/addBookWithREST");
         List<Book> bookList = RestAssured.given()
-                .param("searchField","123")
+                .param("searchField","test")
                 .when().get("/foundBooks")
                 .then()
                 .statusCode(200)
