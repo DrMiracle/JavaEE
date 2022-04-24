@@ -23,7 +23,7 @@
   <button type="submit">Add book</button>
 </form>
 <div>
-  <input id="findBook" placeholder="Find book by title or isbn">
+  <input id="findBook" placeholder="Find book by title, isbn or author">
   <button id="search">Find book</button>
 </div>
 <div>
@@ -34,12 +34,12 @@
   <button id="getBooks">Get all books</button>
   <table>
     <thead>
+    <th>ID</th>
     <th>Title</th>
     <th>ISBN</th>
     <th>Author</th>
     </thead>
     <tbody id="booksTable">
-
     </tbody>
   </table>
 </div>
@@ -72,7 +72,7 @@
               success: function (response) {
                 response.forEach(function (book) {
                   console.log(book);
-                  $booksTable.append('<tr><td>' + book.title + '</td><td>' + book.isbn + '</td><td>' +
+                  $booksTable.append('<tr><td>' + book.id + '<tr><td>' + book.title + '</td><td>' + book.isbn + '</td><td>' +
                           book.author + '</td></tr>');
                 })
               }
@@ -94,10 +94,26 @@
           xhr.setRequestHeader('Content-Type', 'application/json')},
         success: function (response) {
           response.forEach(function(book){
-            $foundBooks.append('<tr><td>' + book.title + '</td><td>' + book.isbn + '</td><td>' +
+            $foundBooks.append('<tr><td>' + book.id + '<tr><td>' + book.title + '</td><td>' + book.isbn + '</td><td>' +
                     book.author + '</td></tr>');
           })
         }
+      });
+    });
+    $('#getBooks').click(function(){
+        $.ajax({
+        url: '/getBooksREST',
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('Content-Type', 'application/json')},
+          success: function (response) {
+            let $booksTable = $('#booksTable');
+            $booksTable.empty();
+            response.forEach(function (book) {
+              console.log(book);
+              $booksTable.append('<tr><td>' + book.id + '<tr><td>' + book.title + '</td><td>' + book.isbn + '</td><td>' +
+                      book.author + '</td></tr>');
+            })
+          }
       });
     });
   });
