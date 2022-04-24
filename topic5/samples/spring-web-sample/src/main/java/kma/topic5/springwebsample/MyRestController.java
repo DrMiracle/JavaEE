@@ -43,7 +43,7 @@ public class MyRestController {
         if (field == null || field.isEmpty()) {
             return getAllBooks();
         }
-        return findBooks(field);
+        return bookService.findBooks(field);
     }
 
     @RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
