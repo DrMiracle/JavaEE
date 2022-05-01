@@ -1,18 +1,14 @@
 package kma.topic5.springwebsample;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import lombok.RequiredArgsConstructor;
 
-import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -33,11 +29,6 @@ public class MyRestController {
         return bookService.allBooks();
     }
 
-//    @GetMapping("/clear")
-//    public void clearBook(){
-//        bookList.clear();
-//    }
-
     @GetMapping("/foundBooks")
     public List<Book> findBooks(@RequestParam(name = "searchInput",required = false) String field){
         if (field == null || field.isEmpty()) {
@@ -53,6 +44,16 @@ public class MyRestController {
             return book.toString();
         }
         return "No book with such id.";
+    }
+
+    @RequestMapping(value = "/book/number_of_books")
+    public int numberOfBooks(){
+        return bookService.allBooks().size();
+    }
+
+    @RequestMapping(value = "/book")
+    public List<Book> paginateBooks(@RequestParam(name = "page") String page, @RequestParam(name = "size") String size){
+        return bookService.paginatedBooks(Integer.parseInt(page), Integer.parseInt(size));
     }
 }
 
