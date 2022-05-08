@@ -22,6 +22,7 @@
     <input name="author" placeholder="Author">
     <button type="submit">Add book</button>
 </form>
+<div id="errors_text"></div>
 <div>
     <input id="findBook" placeholder="Find book by title, isbn or author">
     <button id="search">Find book</button>
@@ -75,6 +76,12 @@
                             $booksTable.append('<tr><td>' + book.id + '</td><td>' + book.title + '</td><td>' + book.isbn + '</td><td>' + book.author + '</td><td><a href="/toWishlist/'+book.id+'">Click here to add or delete book from wishlist</a></td></tr>');
                         });
                     }
+                },
+                error: function (response) {
+                    $('#errors_text').empty();
+                    response.responseJSON.forEach(function (text) {
+                        $('#errors_text').append(text).append('<br>');
+                    })
                 }
             });
         });
@@ -119,7 +126,7 @@
                     response.forEach(function (book) {
                         console.log(book);
                         $booksTable.append('<tr><td>' + book.id + '</td><td>' + book.title + '</td><td>' + book.isbn + '</td><td>' +
-                            book.author + '</td></tr>');
+                            book.author + '</td><td><a href="/toWishlist/'+book.id+'">Click here to add or delete book from wishlist</a></td></tr>');
                     })
                 }
             });

@@ -10,5 +10,10 @@
     <input name="password" placeholder="Password">
     <button type="submit">Registrate</button>
 </form>
+<div>
+    <ul th:each="error: ${errors}">
+        <li th:text="${error}"></li>
+    </ul>
+</div>
 </body>
 </html>
