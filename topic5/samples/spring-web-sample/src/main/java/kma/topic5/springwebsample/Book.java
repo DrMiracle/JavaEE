@@ -3,6 +3,7 @@ package kma.topic5.springwebsample;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -26,4 +27,7 @@ public class Book {
 
     @Column(name = "author")
     String author;
+
+    @ManyToMany(mappedBy = "books")
+    List<User> users;
 }

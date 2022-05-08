@@ -72,7 +72,7 @@
                         let $booksTable = $('#booksTable');
                         $booksTable.empty();
                         response.forEach(function (book) {
-                            $booksTable.append('<tr><td>' + book.id + '</td><td>' + book.title + '</td><td>' + book.isbn + '</td><td>' + book.author + '</td></tr>');
+                            $booksTable.append('<tr><td>' + book.id + '</td><td>' + book.title + '</td><td>' + book.isbn + '</td><td>' + book.author + '</td><td><a href="/toWishlist/'+book.id+'">Click here to add or delete book from wishlist</a></td></tr>');
                         });
                     }
                 }
